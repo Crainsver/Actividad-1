@@ -49,4 +49,10 @@ public class LibroService {
     public int totalLibrosV2() {
         return libroRepository.totalLibros();
     }
+
+    public List<Libro> obtenerPorAutor (String autor) {
+        return libroRepository.selectPorAutor(autor);
+    }
+
+ 
 }

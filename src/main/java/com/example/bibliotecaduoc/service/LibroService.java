@@ -50,8 +50,8 @@ public class LibroService {
         return libroRepository.totalLibros();
     }
 
-    public List<Libro> obtenerPorAutor (String autor) {
-        return libroRepository.selectPorAutor(autor);
+       public List<Libro> obtenerPorEditorial(String editorial){
+        return libroRepository.selectPorEditorial(editorial);
     }
 
  

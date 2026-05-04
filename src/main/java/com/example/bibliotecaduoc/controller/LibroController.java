@@ -113,4 +113,26 @@ public class LibroController {
                 return ResponseEntity.ok(pokemon);
         }
 
+        @GetMapping("/comunicar")
+        public ResponseEntity<String> comunicarMicroservicio(
+        @RequestParam String mensaje) {
+
+        String respuesta = pokeApiWebClient.get()
+                .uri("http://localhost:8081/api/microB/saludo?mensaje={mensaje}", mensaje)
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+
+        return ResponseEntity.ok(respuesta);
+        }
+
+        @GetMapping("/recibir")
+        public ResponseEntity<String> recibirDesdeB(
+        @RequestParam String mensaje) {
+
+        System.out.println("📩 Mensaje recibido desde B: " + mensaje);
+
+        return ResponseEntity.ok("A recibió: " + mensaje);
+}
+
 }

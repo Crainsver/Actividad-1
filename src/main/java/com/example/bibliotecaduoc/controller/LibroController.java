@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.example.bibliotecaduoc.dto.CreateLibroRequest;
+import com.example.bibliotecaduoc.dto.LibroNoEncontrado;
 import com.example.bibliotecaduoc.dto.PokemonResponse;
 import com.example.bibliotecaduoc.dto.UpdateLibroRequest;
 import com.example.bibliotecaduoc.exception.ResourceNotFoundException;
@@ -61,7 +62,9 @@ public class LibroController {
                 Libro libro = libroService.getLibroId(id);
 
                 if (libro == null) {
-
+                        //LibroNoEncontrado libroNoEncontrado = new LibroNoEncontrado(
+                          //      "Error12", "Libro no encontrado");
+                        //return ResponseEntity.status(HttpStatus.NOT_FOUND).body(libroNoEncontrado);
                         throw new ResourceNotFoundException("Libro no encontrado para id: " + id);
                 }
 
